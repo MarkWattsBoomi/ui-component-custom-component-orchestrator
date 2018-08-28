@@ -1,0 +1,106 @@
+//forward
+This component Allows you to add an attribute to any page based outcome and then to handle the outcome being selected in java script
+
+You add an attribute to the outcome e.g. MyOutcomeAction and set it to true to have it fire
+
+You then need to create a function to handle the event and register it in the player.
+
+There are two OOB functions for AutoClose and ForcePrint.
+
+
+Upload the assets
+=====================
+Upload the js file as an asset in the tenant.
+It should be called OutcomeManager.js
+
+
+Add the custom resources the player
+====================
+<script>
+        
+var manywho = {
+            
+	cdnUrl: 'https://assets.manywho.com',
+            
+	requires: ['core', 'bootstrap3'],
+            
+           
+            
+	customResources: [
+            
+		'https://s3.amazonaws.com/files-manywho-com/<tenantid>/OutcomeManager.js',            
+	],
+
+
+			
+Add custom attributes
+=====================
+var manywho = {
+            
+	cdnUrl: 'https://assets.manywho.com',
+            
+	requires: ['core', 'bootstrap3'],
+            
+           
+            
+	customResources: [
+            
+		'https://s3.amazonaws.com/files-manywho-com/<tenantid>/OutcomeManager.js',            
+	],
+	 OutcomeHandlers: {
+        		
+		"banana": window["bananaHandler"], 
+        	
+	},
+
+Note these need to go immediatly after the customResources declaration as shown.
+
+It's an associative array with the key being the outcome attribute name (case sensitive) and the value is the the function which handles the call. We pass the actual function.
+
+
+Implement the functions
+=======================
+
+In the player code add functions to match your OutcomeHandlers declaration e.g.
+
+            	
+            	
+bananaHandler = function()
+            	
+{
+            		
+	alert("banana");
+            	
+}
+            	
+            	
+
+
+
+Place these right at the start of the script section 
+
+NOTE
+====
+
+You can override the default AutoClose or ForcePrint methods by re-implementing the functions e.g.
+
+<script>
+        
+var bananaHandler = function()
+        
+{
+        	
+alert("banana");
+        
+};
+                
+        
+
+var manywho = {
+            
+cdnUrl: 'https://assets.manywho.com',
+            
+requires: ['core', 'bootstrap3'],
+
+
+Add the custom attributes to the outcome - they will stack. 
