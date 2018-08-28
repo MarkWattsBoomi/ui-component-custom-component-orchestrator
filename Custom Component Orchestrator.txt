@@ -16,8 +16,6 @@ var manywho = {
             
 	requires: ['core', 'bootstrap3'],
             
-           
-            
 	customResources: [
             
 		'https://s3.amazonaws.com/files-manywho-com/<tenantid>/CustomComponentOrchestrator.js',            
