@@ -49,6 +49,7 @@ function CCOdoneSendHandler(xhr: any , request: any)
 }
 
 /*
+this will be used if they ever add the promise return on the platform
 manywho.engine.initialize(
 {
 },
