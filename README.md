@@ -13,4 +13,4 @@ The core custom component orchestrator that allows multiple other components to 
                 ],
 
 
-##### Note: This should be the first declaration in customResource.
+##### Note: This should be the first declaration in customResources.
